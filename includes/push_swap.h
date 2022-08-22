@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:26:39 by shima             #+#    #+#             */
-/*   Updated: 2022/08/20 10:34:17 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/22 12:40:03 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,17 @@ typedef struct s_dclist
 
 // list.c
 t_dclist	*dclst_new(int value);
-void	dclst_add_back(t_dclist **lst, t_dclist *new);
+void		dclst_add_back(t_dclist **lst, t_dclist *new);
 t_dclist	*dclst_last(t_dclist *lst);
+int			dclst_size(t_dclist *lst);
 
+// swap.c
+void	sa(t_dclist *stack);
+
+// rotate.c
+void	ra(t_dclist **a);
+
+// test
+void	print_stack(t_dclist *stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 10:15:45 by shima             #+#    #+#             */
-/*   Updated: 2022/08/20 10:49:17 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/21 10:48:06 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,23 @@ t_dclist	*dclst_last(t_dclist *lst)
 		if (lst->prev)
 			return (lst->prev);
 	return (lst);
+}
+
+int	dclst_size(t_dclist *lst)
+{
+	int			size;
+	t_dclist	*start_p;
+
+	if (!lst)
+		return (0);
+	size = 0;
+	start_p = lst;
+	while (lst)
+	{
+		if (size > 0 && start_p == lst)
+			break ;
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }
