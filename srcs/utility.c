@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utility.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/10 13:11:29 by shima             #+#    #+#             */
-/*   Updated: 2022/08/23 19:36:29 by shima            ###   ########.fr       */
+/*   Created: 2022/08/23 18:13:34 by shima             #+#    #+#             */
+/*   Updated: 2022/08/23 19:58:05 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
 int	ft_isspace(int c);
+void error2();
 
-int	ft_atoi(const char *str)
+
+int	atoi_for_push_swap(const char *str)
 {
-	// size_t			digit;
-	// int				sign;
-	// unsigned long	num;
-	// size_t			i;
-
-	// digit = 0;
-	// sign = 1;
-	// num = 0;
-	// i = 0;
-	// if (str[i] == '+' || str[i] == '-')
-	// 	if (str[i++] == '-')
-	// 		sign = -1;
-	// while (str[i] == '0')
-	// 	i++;
-	// while (ft_isdigit(str[i]))
-	// {
-	// 	num = num * 10 + str[i++] - '0';
-	// 	if (++digit > 19 || num > __LONG_MAX__)
-	// 		return ((int)long_overflow(sign));
-	// }
-	// return ((int)num * sign);
 	long	ret;
 	int		sign;
 	size_t	i;
@@ -54,10 +35,12 @@ int	ft_atoi(const char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (-1);
+			error2();
 		ret = ret * 10 + str[i++] - '0';
+		if (ret < INT_MIN || INT_MAX < ret)
+			error2();
 	}
-	return (ret);
+	return (ret * sign);
 }
 
 int	ft_isspace(int c)
@@ -65,4 +48,16 @@ int	ft_isspace(int c)
 	if (('\t' <= c && c <= '\r') || c == ' ')
 		return (true);
 	return (false);
+}
+
+void error2()
+{
+	ft_printf("Error2\n");
+	exit(EXIT_FAILURE);
+}
+
+void error()
+{
+	ft_printf("Error\n");
+	exit(EXIT_FAILURE);
 }

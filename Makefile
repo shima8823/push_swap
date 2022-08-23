@@ -2,7 +2,7 @@
 CFLAGS =
 CPPFLAGS = -I includes
 NAME = push_swap
-SRCS = main.c list.c swap.c rotate.c
+SRCS = main.c list.c swap.c rotate.c push.c radix_sort.c other_sort.c utility.c
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:%.c=%.o))
 OBJDIR = obj
 VPATH = srcs

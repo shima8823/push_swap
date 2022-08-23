@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 11:52:59 by shima             #+#    #+#             */
-/*   Updated: 2022/08/22 13:07:07 by shima            ###   ########.fr       */
+/*   Created: 2022/08/22 13:15:11 by shima             #+#    #+#             */
+/*   Updated: 2022/08/23 19:25:36 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_dclist **a)
+void	push(t_dclist **a, t_dclist **b)
 {
-	*a = (*a)->next;
-	ft_printf("ra\n");
+	t_dclist	*tmp;
+
+	if (!a || !(*a))
+		return ;
+	tmp = *a;
+	if (dclst_size(*a) == 1)
+	{
+		*a = NULL;
+	}
+	else
+	{
+		(*a)->prev->next = (*a)->next;
+		(*a)->next->prev = (*a)->prev;
+		*a = (*a)->next;
+	}
+	dclst_add_front(b, tmp);
 }
 
-void	rra(t_dclist **a)
+void	pa(t_dclist **b, t_dclist **a)
 {
-	*a = (*a)->prev;
-	ft_printf("rra\n");
+	ft_printf("pa\n");
+	push(b, a);
+}
+
+void	pb(t_dclist **a, t_dclist **b)
+{
+	ft_printf("pb\n");
+	push(a, b);
 }

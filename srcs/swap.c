@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 09:41:15 by shima             #+#    #+#             */
-/*   Updated: 2022/08/22 11:39:59 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/23 15:48:32 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,4 @@ void	sa(t_dclist *stack)
 	stack->value = stack->next->value;
 	stack->next->value = tmp;
 	ft_printf("sa\n");
-}
-
-void	ss(t_dclist *a, t_dclist *b)
-{
-	sa(a);
-	sa(b);
 }
