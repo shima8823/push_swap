@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:26:41 by shima             #+#    #+#             */
-/*   Updated: 2022/08/24 11:49:12 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/24 12:40:20 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	if (is_stack_dupulicate(stack_a))
 		error();
-	if (is_stack_sorted(stack_a))
-		exit(EXIT_SUCCESS);
-	sort(&stack_a, &stack_b);
+	if (!is_stack_sorted(stack_a))
+		sort(&stack_a, &stack_b);
 	exit(EXIT_SUCCESS);
 }
 
@@ -47,7 +46,7 @@ t_dclist	*args_to_stack(int argc, char *argv[])
 	{
 		tmp = dclst_new(atoi_for_push_swap(argv[i + 1]));
 		if (tmp == NULL)
-			exit(EXIT_FAILURE);
+			error();
 		dclst_add_back(&a, tmp);
 		i++;
 	}
@@ -117,22 +116,3 @@ void	sort(t_dclist **a, t_dclist **b)
 	else
 		radix_sort(a, b, size);
 }
-
-// test
-// void	print_stack(t_dclist *stack_a)
-// {
-// 	int	size;
-// 	int	i;
-// 	if (!stack_a)
-// 		return ;
-// 	size = dclst_size(stack_a);
-// 		ft_printf("a");
-// 	i = 0;
-// 	while(i < size)
-// 	{
-// 		ft_printf("--%d--\nprev: %d\nvalue: %d\nrank: %d\nnext: %d\n", i, st
-// ack_a->prev->value, stack_a->value, stack_a->rank, stack_a->next->value);
-// 		stack_a = stack_a->next;
-// 		i++;
-// 	}
-// }
