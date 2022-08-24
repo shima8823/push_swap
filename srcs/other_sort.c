@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:56:35 by shima             #+#    #+#             */
-/*   Updated: 2022/08/23 21:00:06 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/24 11:07:00 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int		min_elm_pos(t_dclist *stack, int size);
 void	three_sort(t_dclist **a)
 {
 	if (is_stack_sorted(*a))
-		return;
+		return ;
 	if ((*a)->value < (*a)->next->value)
 	{
 		if ((*a)->value < (*a)->next->next->value)
 		{
-			sa(*a);
+			sa(a);
 			ra(a);
 		}
 		else
@@ -33,13 +33,13 @@ void	three_sort(t_dclist **a)
 	if ((*a)->next->value < (*a)->next->next->value)
 	{
 		if ((*a)->value < (*a)->next->next->value)
-			sa(*a);
+			sa(a);
 		else
 			ra(a);
 	}
 	else
 	{
-		sa(*a);
+		sa(a);
 		rra(a);
 	}
 }

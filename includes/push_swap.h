@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:26:39 by shima             #+#    #+#             */
-/*   Updated: 2022/08/23 20:36:17 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/24 11:35:00 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,30 +41,29 @@ void		dclst_add_front(t_dclist **lst, t_dclist *new);
 bool		is_stack_sorted(t_dclist *a);
 
 // swap.c
-void	sa(t_dclist *stack);
+void		sa(t_dclist **stack);
 
 // rotate.c
-void	ra(t_dclist **a);
-void	rra(t_dclist **a);
+void		ra(t_dclist **a);
+void		rra(t_dclist **a);
 
 // push.c
-void	pa(t_dclist **b, t_dclist **a);
-void	pb(t_dclist **a, t_dclist **b);
+void		pa(t_dclist **b, t_dclist **a);
+void		pb(t_dclist **a, t_dclist **b);
 
 // radix_sort.c
 void		radix_sort(t_dclist **a, t_dclist **b, int size);
-void		coordinate_compression(t_dclist **a);
-t_dclist	*min_elm_and_no_rank(t_dclist *a);
+void		coordinate_compression(t_dclist **a, int size);
+t_dclist	*min_elm_and_no_rank(t_dclist *a, int size);
 
 // other_sort.c
 void		three_sort(t_dclist **a);
 void		six_sort(t_dclist **a, t_dclist **b, int size);
 
 // utility.c
-int		atoi_for_push_swap(const char *str);
-void	error();
+int			atoi_for_push_swap(const char *str);
+void		error(void);
 
 // test
-void	print_stack(t_dclist *stack_a);
-
+// void		print_stack(t_dclist *stack_a);
 #endif

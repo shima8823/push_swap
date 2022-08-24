@@ -6,7 +6,7 @@
 /*   By: shima <shima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:26:41 by shima             #+#    #+#             */
-/*   Updated: 2022/08/23 20:36:09 by shima            ###   ########.fr       */
+/*   Updated: 2022/08/24 11:49:12 by shima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	sort(t_dclist **a, t_dclist **b)
 	if (size == 1)
 		return ;
 	else if (size == 2)
-		sa(*a);
+		sa(a);
 	else if (size == 3)
 		three_sort(a);
 	else if (size <= 6)
@@ -119,34 +119,20 @@ void	sort(t_dclist **a, t_dclist **b)
 }
 
 // test
-
-void	print_stack(t_dclist *stack_a)
-{
-	int	start_val;
-	int i;
-
-	if (!stack_a)
-		return ;
-	start_val = stack_a->value;
-	i = 1;
-	// printf("%s, %d\n", __FILE__, __LINE__);
-	while(true)
-	{
-		if (i != 1 && stack_a->value == start_val)
-			break;
-		if (!stack_a->next)
-		{
-			ft_printf("--1個しかない--\nvalue: %d\n", stack_a->value);
-			break ;
-		}
-		// ft_printf("--%d--\nprev: %d\nvalue: %d\nnext: %d\n", i, stack_a->prev->value, stack_a->value, stack_a->next->value);
-		ft_printf("--%d--\nprev: %d\nvalue: %d\nrank: %d\nnext: %d\n", i, stack_a->prev->value, stack_a->value, stack_a->rank, stack_a->next->value);
-		stack_a = stack_a->next;
-		i++;
-	}
-}
-
-// 2 3 4 1
-//  1 3 4 2
-
-// b 1
+// void	print_stack(t_dclist *stack_a)
+// {
+// 	int	size;
+// 	int	i;
+// 	if (!stack_a)
+// 		return ;
+// 	size = dclst_size(stack_a);
+// 		ft_printf("a");
+// 	i = 0;
+// 	while(i < size)
+// 	{
+// 		ft_printf("--%d--\nprev: %d\nvalue: %d\nrank: %d\nnext: %d\n", i, st
+// ack_a->prev->value, stack_a->value, stack_a->rank, stack_a->next->value);
+// 		stack_a = stack_a->next;
+// 		i++;
+// 	}
+// }
